@@ -9,9 +9,9 @@ function preload(){
 }
 
 function setup(){
-  canvas = createCanvas(windowWidth-100, windowHeight-100);
-  // basilisk = new Snake();
-  // harry = new Player();
+  canvas = createCanvas(windowWidth-10, windowHeight-10);
+  basilisk = new Snake();
+  harry = new Player();
  
   direction =0;//O for left 1 for right
 
@@ -30,7 +30,7 @@ setInterval(() => {
   counter = counter-1;
 },1000);
 
-//form = new Form();
+form = new Form();
 
 
 }
@@ -45,41 +45,46 @@ setInterval(() => {
   if(direction === 0){
       arrowL.visible = true;
       arrowR.visible = false;
+     // basilisk.sprite.changeAnimation("slither-right");
   }else {
-    arrowL.visible = false;
+      arrowL.visible = false;
       arrowR.visible = true;
+    //  basilisk.sprite.changeAnimation("slither-left");
 
   } 
   
   
-  
-  
-  
-  
-// //   setTimeout(()=>{
-// //     arrowL.visible = false;
-// //     arrowR.visible = false;
-// //   //Move Basilik to the direction
-// //       if(direction === 0){
-// //         basilisk.sprite.x = basilisk.sprite.x + 200
-   
-// //         } else{
-// //           basilisk.sprite.x = basilisk.sprite.x - 200
-// //         }
-// //       setTimeout(()=>{
-// //         basilisk.sprite.x = windowWidth/2
+  setTimeout(()=>{
+    arrowL.visible = false;
+    arrowR.visible = false;
+    basilisk.sprite.scale = 1.7;
+    basilisk.sprite.changeAnimation("strike-right");
 
-// //       },1000);
+  //Move Basilik to the direction
+      if(direction === 0){
+        /**Move right */
+        basilisk.sprite.x = basilisk.sprite.x + 200;
+   
+        } else{
+          /**Move left */
+          basilisk.sprite.x = basilisk.sprite.x - 200;
+        }
+      setTimeout(()=>{
+        basilisk.sprite.x = windowWidth/2;
+        basilisk.sprite.changeAnimation("slither-right");
+        basilisk.sprite.scale = 2;
+
+      },1000);
   
-// //     },2000);
+    },2000);
   
 }
 
-// textSize(36);
-// fill(0);
-// text(counter, windowWidth/2-40, windowHeight/10);
-// harry.display(); 
-// basilisk.display();
+textSize(36);
+fill(0);
+text(counter, windowWidth/2-40, windowHeight/10);
+harry.display(); 
+basilisk.display();
   drawSprites();
 
  }
