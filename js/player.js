@@ -2,6 +2,7 @@ class Player{
 constructor(){
     this.animation = loadAnimation("./images/harry0.png","./images/harry1.png" );
       this.sprite = createSprite(windowWidth/2, windowHeight*3/4);
+      this.sprite.debug = true;
   if (this.animation)
     this.animation.frameDelay = 10;
     

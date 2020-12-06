@@ -13,6 +13,8 @@ this.slitherLeft = loadAnimation("./images/slither-to-left/sprite_00.png","./ima
 "./images/slither-to-left/sprite_07.png","./images/slither-to-left/sprite_08.png","./images/slither-to-left/sprite_09.png");
 this.sprite = createSprite(windowWidth/2,windowHeight/2);
 this.sprite.scale = 2;
+this.sprite.debug = true;
+this.sprite.setCollider ("rectangle", 0,0,windowWidth/4+180, windowHeight/4);
 if(this.slitherRight){
     this.slitherRight.frameDelay = 7;
     }
