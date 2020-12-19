@@ -12,9 +12,9 @@ this.slitherLeft = loadAnimation("./images/slither-to-left/sprite_00.png","./ima
 "./images/slither-to-left/sprite_05.png","./images/slither-to-left/sprite_06.png",
 "./images/slither-to-left/sprite_07.png","./images/slither-to-left/sprite_08.png","./images/slither-to-left/sprite_09.png");
 this.sprite = createSprite(windowWidth/2,windowHeight/2);
-this.sprite.scale = 2;
-this.sprite.debug = true;
-this.sprite.setCollider ("rectangle", 0,0,windowWidth/4+180, windowHeight/4);
+this.sprite.scale = 2*factor;
+this.sprite.debug = false;
+this.sprite.setCollider ("rectangle", 0,0,windowWidth/4+180, windowHeight/2.5);
 if(this.slitherRight){
     this.slitherRight.frameDelay = 7;
     }
@@ -29,7 +29,13 @@ this.sprite.addAnimation("strike-right", this.strikeRight);
 }
 
 display(){
-
+if(window.innerWidth<=1533){
+    this.sprite.y = windowHeight*6/10
+} else if (window.innerWidth<=1050){
+    this.sprite.y = windowHeight*8.5/10
+} else if(window.innerWidth<=900){
+    this.sprite.y = windowHeight*9/10
+}
 
 
     drawSprites();
