@@ -6,6 +6,7 @@ var counter;
 var form;
 var bg;
 
+
 var leftWall, rightWall;
 var gameState = "play";
 function preload(){
@@ -30,8 +31,8 @@ arrowL = createSprite(windowWidth*1/6,windowHeight*2/3);
 arrowR = createSprite(windowWidth*7/8,windowHeight*2/3);
 arrowL.addImage("leftArrow",arrowLImage);
 arrowR.addImage("rightArrow",arrowRImage);
-arrowL.scale = 0.5
-arrowR.scale = 0.5
+arrowL.scale = 0.5*factor
+arrowR.scale = 0.5*factor
 arrowL.visible = false;
 arrowR.visible = false;
 counter = 60;
@@ -75,8 +76,9 @@ basilisk.display();
  function play(){
   textSize(36);
   fill(0);
-  text(counter, windowWidth/2-40, windowHeight/13);
-    if(frameCount %150 === 0){
+text(counter, windowWidth/2-40, windowHeight/13);
+    
+      if(frameCount %150 === 0){
       direction = Math.round(Math.random());
       console.log(direction);
       if(direction === 0){

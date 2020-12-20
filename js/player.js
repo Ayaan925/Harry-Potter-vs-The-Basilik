@@ -8,13 +8,34 @@ constructor(){
     
     this.sprite.addAnimation("harryRun", this.animation);
     this.sprite.scale = 0.8*factor;
-  
+    this.isMoving = false;
+  canvas.touchStarted((data)=> {
+    this.isMoving = true;
+    console.log(data);
+  }  );
+  canvas.touchEnded(()=> {
+    this.isMoving = false;
+  });
 }
 
 
 
 
 display(){
+  if(touches.length > 0 && this.isMoving === true){
+    console.log(touches);
+    var last = touches.length -1;
+    if(touches[last].x< windowWidth/2){
+      this.sprite.x = this.sprite.x-20
+    }
+    if(touches[last].x>= windowWidth/2){
+      this.sprite.x = this.sprite.x+20
+    }
+    if(this.isMoving === false){
+      touches = []
+    }
+    
+   } 
     
     if(keyDown("left")){
         this.sprite.x = this.sprite.x -20;

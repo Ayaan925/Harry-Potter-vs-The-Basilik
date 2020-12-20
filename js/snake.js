@@ -35,6 +35,9 @@ if(window.innerWidth<=1533){
     this.sprite.y = windowHeight*8.5/10
 } else if(window.innerWidth<=900){
     this.sprite.y = windowHeight*9/10
+}else if(window.innerWidth<=500){
+    this.sprite.scale = 2.3*factor
+    harry.sprite.scale = 1.2*factor
 }
 
 
